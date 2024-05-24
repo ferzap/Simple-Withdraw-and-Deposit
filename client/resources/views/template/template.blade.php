@@ -8,7 +8,6 @@
     @vite(['resources/js/app.js'])
     @vite(['resources/css/app.css','resources/css/custom.css'])
     {{-- @vite('/css/app.css') --}}
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('favicon.png') }}">
     <script src="https://kit.fontawesome.com/cde9a07be5.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.7.0/flowbite.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />

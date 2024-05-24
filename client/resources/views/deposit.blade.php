@@ -19,7 +19,7 @@
                     <div class="w-full flex flex-col">
                         <x-forms.text-input class="grow modal-input text-right !text-3xl !h-20" id="amount" type="text" name="amount"
                             :value="old('amount')" placeholder="Enter Amount" autofocus />
-                        <i class="!hidden fa-solid fa-circle-exclamation absolute right-3 top-12 md:top-3 text-red-600"></i>
+                        <i class="!hidden fa-solid fa-circle-exclamation absolute left-3 top-8 md:top-8 text-red-600"></i>
                         <x-forms.input-error class="hidden">Error</x-forms>
                     </div>
                 </label>

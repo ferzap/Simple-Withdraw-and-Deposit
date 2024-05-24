@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Validator;
 
 class TransactionController extends Controller
 {
@@ -58,7 +59,7 @@ class TransactionController extends Controller
     public function getBalance()
     {
         $response = $this->fetchGetBalance();
-        if($response->code == 401 || $response->code == 403) {
+        if ($response->code == 401 || $response->code == 403) {
             session()->invalidate();
 
             session()->regenerateToken();
@@ -71,7 +72,7 @@ class TransactionController extends Controller
     public function getHistory()
     {
         $response = $this->fetchGetHistory();
-        if($response->code == 401 || $response->code == 403) {
+        if ($response->code == 401 || $response->code == 403) {
             session()->invalidate();
 
             session()->regenerateToken();
@@ -83,36 +84,46 @@ class TransactionController extends Controller
 
     public function store(Request $request)
     {
-        $validate = $request->validate([
+        $rules = [
             "amount" => ["required"],
             "type" => ["required", "in:withdraw,deposit"]
-        ]);
+        ];
 
-        $validate['amount'] = str_replace('.', '', $validate['amount']);
-        $validate['amount'] = (float)str_replace(',', '.', $validate['amount']);
-        $validate['order_id'] = (string)rand(1, 999999);
-        $validate['timestamp'] = date('Y-m-d H:i:s');
-
-        if ($validate['type'] == 'withdraw') {
-            $response = $this->fetchWithdrawApi($validate);
+        $validator = Validator::make($request->all(), $rules);
+        
+        if ($validator->fails()) {
+            return response()->json([
+                'success' => false,
+                'code' => 412,
+                'message' => 'Validation Errors',
+                'errors' => $validator->messages()
+            ], 200);
         } else {
-            $response = $this->fetchDepositApi($validate);
-        }
-        if($response->code == 401 || $response->code == 403) {
-            $request->session()->invalidate();
+            $validated = $validator->valid();
+            $validated['amount'] = str_replace('.', '', $validated['amount']);
+            $validated['amount'] = (float)str_replace(',', '.', $validated['amount']);
+            $validated['order_id'] = (string)rand(1, 999999);
+            $validated['timestamp'] = date('Y-m-d H:i:s');
+            if ($validated['type'] == 'withdraw') {
+                $response = $this->fetchWithdrawApi($validated);
+            } else {
+                $response = $this->fetchDepositApi($validated);
+            }
+            if ($response->code == 401 || $response->code == 403) {
+                $request->session()->invalidate();
 
-            $request->session()->regenerateToken();
+                $request->session()->regenerateToken();
 
-            return response()->json($response, 401);
-        }
+                return response()->json($response, 401);
+            }
 
-        if ($response->status) {
-            return response()->json($response, 200);
-        } else {
-            return response()->json($response, 200);
+            if ($response->status) {
+                return response()->json($response, 200);
+            } else {
+                return response()->json($response, 200);
+            }
         }
     }
-
 
     private function fetchWithdrawApi($data)
     {

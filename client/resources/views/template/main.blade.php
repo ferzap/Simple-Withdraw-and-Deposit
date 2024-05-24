@@ -7,7 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     @vite(['resources/css/app.css'])
     {{-- <title>{{ $title }}</title> --}}
-    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.png') }}">
     <script src="https://kit.fontawesome.com/cde9a07be5.js" crossorigin="anonymous"></script>
 </head>
 

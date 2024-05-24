@@ -27,6 +27,7 @@
 .form-input-error {
     @apply !border-red-400;
     @apply focus:!border-red-600;
+    @apply border-2
 }
 
 .button-primary {
