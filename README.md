@@ -14,7 +14,7 @@ API build using express JS
 API build using express JS act as third party API. Always return 200
 
 1. `cd .\externalapi\`
-2. Change file .env.example to .env inside folder api
+2. Change file .env.example to .env inside folder externalapi
 3. `npm install` to install node depedencies
 5. `npm run dev` The app will run on http://127.0.0.1:3001
 
