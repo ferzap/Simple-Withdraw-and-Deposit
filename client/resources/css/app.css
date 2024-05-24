@@ -1,0 +1,159 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.modal-input-label{
+    @apply py-2;
+    @apply text-[13px];
+    @apply text-neutral-700;
+    @apply font-semibold;
+}
+
+.modal-input {
+    @apply h-[38px];
+    @apply border-[1px];
+    @apply border-neutral-300;
+    @apply drop-shadow-sm;
+    @apply min-h-[38px];
+}
+
+.modal-input:focus {
+    @apply outline-none;
+    @apply border-primary-content;
+    @apply border-collapse;
+    @apply border-2;
+}
+
+.form-input-error {
+    @apply !border-red-400;
+    @apply focus:!border-red-600;
+}
+
+.button-primary {
+    @apply btn;
+    @apply btn-sm;
+    @apply btn-primary;
+    @apply text-white;
+    @apply text-[13px];
+    @apply drop-shadow-sm;
+    @apply font-normal;
+    @apply rounded-md;
+}
+
+.button-primary:disabled {
+    @apply bg-neutral-300;
+    @apply disabled:text-neutral-400;
+}
+
+
+.button-primary-outline {
+    @apply border-primary-700;
+    @apply text-primary-700;
+}
+
+.button-primary-outline:hover {
+    @apply bg-primary-700;
+    @apply text-white;
+    @apply border-primary-700;
+}
+
+.button-primary-outline:disabled {
+    @apply bg-neutral-300;
+    @apply disabled:text-neutral-400;
+}
+
+
+.button-neutral {
+    @apply btn;
+    @apply btn-sm;
+    @apply rounded-md;
+    @apply text-[13px];
+    @apply bg-white;
+    @apply border-neutral-200;
+}
+
+.button-neutral.active{
+    @apply btn;
+    @apply btn-sm;
+    @apply rounded-md;
+    @apply text-white;
+    @apply text-[13px];
+    @apply bg-primary;
+    @apply border-neutral-200;
+}
+
+.button-neutral:hover {
+    @apply border-neutral-200;
+    @apply bg-neutral-50;
+}
+
+.button-neutral.active:hover, .button-neutral.active:disabled {
+    @apply text-white;
+    @apply bg-primary;
+}
+
+.button-success {
+    @apply btn;
+    @apply btn-sm;
+    @apply rounded-md;
+    @apply text-[13px];
+    @apply bg-[#2E7D32];
+    @apply border-[#2E7D32];
+    @apply text-white;
+}
+
+.button-success:hover {
+    @apply bg-[#1D6B14];
+    @apply border-[#1D6B14];
+}
+
+.button-success:disabled {
+    @apply bg-neutral-300;
+    @apply disabled:text-neutral-400;
+}
+
+.button-danger {
+    @apply btn;
+    @apply btn-sm;
+    @apply rounded-md;
+    @apply text-[13px];
+    @apply bg-[#C62828];
+    @apply border-[#C62828];
+    @apply text-white;
+}
+
+.button-danger:hover {
+    @apply bg-[#A52222];
+    @apply border-[#A52222];
+}
+
+.button-danger:disabled {
+    @apply bg-neutral-300;
+    @apply disabled:text-neutral-400;
+}
+
+.login-input-error {
+    @apply border-b-red-400;
+    @apply focus:!border-b-red-600;
+}
+
+.m-alert {
+    @apply alert;
+    @apply w-full;
+    @apply rounded-lg;
+    @apply mx-auto;
+    @apply mb-8;
+    @apply text-neutral-500;
+}
+
+#t-body tr.selected {
+    @apply bg-[#F0F9FF];
+}
+
+.text-data {
+    @apply text-[13px];
+}
+
+#filterForm label div.label {
+    @apply !w-full;
+}
