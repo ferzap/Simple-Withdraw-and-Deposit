@@ -27,7 +27,7 @@ Client side build using Laravel 10, jQuery & Tailwind CSS
 4. `npm install` to install node depedencies
 5. `php artisan key:generate` to generate APP KEY for Laravel
 6. `npm run dev` to start node. Need to run or style will not be applied
-7. `php artisan serve` to start Laravel. The app will run on http://127.0.0.1:3002
+7. `php artisan serve` to start Laravel. The app will run on http://127.0.0.1:8000
 8. > Try this email and password after seeding the database
    > email: firman.er@gmail.com
    > password: 123456
