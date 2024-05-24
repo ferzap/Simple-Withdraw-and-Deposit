@@ -7,7 +7,7 @@ API build using express JS
 1. `cd .\api\`
 2. Change file .env.example to .env inside folder api
 3. `npm install` to install node depedencies
-4. Run migration `npx prisma migrate dev`
+4. Run migration `npx prisma migrate dev` will run migration and seed
 5. `npm run dev` The app will run on http://127.0.0.1:3000
 
 ## EXTERNAL API
@@ -28,4 +28,7 @@ Client side build using Laravel 10, jQuery & Tailwind CSS
 5. `php artisan key:generate` to generate APP KEY for Laravel
 6. `npm run dev` to start node. Need to run or style will not be applied
 7. `php artisan serve` to start Laravel. The app will run on http://127.0.0.1:3002
+8. > Try this email and password after seeding the database
+   > email: firman.er@gmail.com
+   > password: 123456
 
