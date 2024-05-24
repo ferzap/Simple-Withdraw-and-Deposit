@@ -32,3 +32,5 @@ Client side build using Laravel 10, jQuery & Tailwind CSS
    > email: firman.er@gmail.com
    > password: 123456
 
+*if you found withdraw or deposit failed. It's because a random status set between success = 1 and failed = 2*
+
